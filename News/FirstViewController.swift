@@ -163,32 +163,36 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                 }
             }
             
-            
-            
-            DispatchQueue.main.async {
-                
-                self.newsItems.removeAll()
-                
-                let xml = SWXMLHash.parse(data!)
-                
-                //self.navigationItem.title = xml["rss"]["channel"]["pubDate"].element?.text
-                
-                for element in xml["rss"]["channel"]["item"] {
-                    let title = element["title"].element?.text
-                    let description = element["description"].element?.text
-                    let pubDate = self.convertPubDate(pubDate: (element["pubDate"].element?.text)!)
-                    let link = element["link"].element?.text
-                    let img = self.loadImageFromURL(URL(string: element["enclosure"].element!.attribute(by: "url")!.text)!)
+            if data != nil {
+                DispatchQueue.main.async {
                     
-                    let item = NewsItem(ttl: title!, descr: description!, pubDate: pubDate, link: link!, img: img)
+                    self.newsItems.removeAll()
                     
-                    self.newsItems.append(item)
-                    self.tableView.reloadData()
+                    let xml = SWXMLHash.parse(data!)
+                    
+                    //self.navigationItem.title = xml["rss"]["channel"]["pubDate"].element?.text
+                    
+                    for element in xml["rss"]["channel"]["item"] {
+                        let title = element["title"].element?.text
+                        let description = element["description"].element?.text
+                        let pubDate = self.convertPubDate(pubDate: (element["pubDate"].element?.text)!)
+                        let link = element["link"].element?.text
+                        let img = self.loadImageFromURL(URL(string: element["enclosure"].element!.attribute(by: "url")!.text)!)
+                        
+                        let item = NewsItem(ttl: title!, descr: description!, pubDate: pubDate, link: link!, img: img)
+                        
+                        self.newsItems.append(item)
+                        self.tableView.reloadData()
+                    }
+                    
+                    self.tableView.isHidden = false
+                    self.refreshControl.endRefreshing()
                 }
-                
-                self.tableView.isHidden = false
-                self.refreshControl.endRefreshing()
+            } else {
+                print(error!.localizedDescription)
             }
+            
+            
         }).resume()
     }
     

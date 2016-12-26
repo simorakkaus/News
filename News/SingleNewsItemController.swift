@@ -9,6 +9,7 @@
 import UIKit
 import HidingNavigationBar
 import SwiftSoup
+import Player
 
 class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +22,7 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
     var currentNewsItemImage = UIImageView()
     var pubDate = ""
     var currentNewsItemTitle = ""
-    
+    var isVideo = Bool()
     
     struct SingleNewsItem {
         var category = String()
@@ -30,6 +31,7 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         var thumbsUp = String()
         var thumbsDown = String()
         var newsItemText = String()
+        var videoLink = String()
     }
     
     var singleItem = SingleNewsItem()
@@ -39,6 +41,17 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         hidingNavBarManager?.viewWillAppear(animated)
         spinner.startAnimating()
         
+        let charset = "Видео"
+        
+        if self.currentNewsItemTitle.range(of: charset) != nil {
+            isVideo = true
+            print(self.isVideo.description)
+            print("video")
+            
+        } else {
+            print("no video")
+            print(self.isVideo.description)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,15 +93,23 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
                             texter.append(txt)
                         }
                         
-                        let item = SingleNewsItem(category: category, subCategory: subCategory, views: seen, thumbsUp: thumbUp, thumbsDown: thumbDown, newsItemText: texter.joined(separator: "\n"))
+                        var videoLink = String()
+                        
+                        if self.isVideo {
+                            videoLink = try doc.select("div#item-news-canvas").select("div.text").select("iframe").attr("src")
+                        } else {
+                            videoLink = ""
+                        }
+                        
+                        let item = SingleNewsItem(category: category, subCategory: subCategory, views: seen, thumbsUp: thumbUp, thumbsDown: thumbDown, newsItemText: texter.joined(separator: "\n"), videoLink: videoLink)
                         
                         self.singleItem = item
                         self.tableView.reloadData()
                         self.tableView.isHidden = false
                         print(self.singleItem)
                         
-                        self.title = item.category
-                        self.navigationItem.prompt = item.subCategory
+                        self.title = item.subCategory
+                        self.navigationItem.prompt = item.category
                         self.spinner.stopAnimating()
                         self.spinner.removeFromSuperview()
                         
@@ -153,7 +174,15 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         cell.thumbUp.text = singleItem.thumbsUp
         cell.thumbDown.text = singleItem.thumbsDown
         
-        navigationController?.title = singleItem.category
+        if let wv = cell.webViewVideo {
+            if isVideo == false {
+                wv.removeFromSuperview()
+            } else if isVideo{
+                
+                //cell.webViewVideo.loadRequest(URLRequest(url: URL(string: self.singleItem.videoLink)!))
+               
+            }
+        }
         
         return cell
     }

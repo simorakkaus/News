@@ -137,18 +137,18 @@
                         <viewControllerLayoutGuide type="bottom" id="Veu-1q-sjC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qyd-d8-eOm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="429" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sXU-bV-4zY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="651" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sXU-bV-4zY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleNewsItemCell" rowHeight="335" id="X0c-Kg-oPy" customClass="SingleNewsItemCell" customModule="News" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="335"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleNewsItemCell" rowHeight="614" id="X0c-Kg-oPy" customClass="SingleNewsItemCell" customModule="News" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="614"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X0c-Kg-oPy" id="m7t-dl-MXX">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="334"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="613"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hoF-4g-6WW">
@@ -214,6 +214,14 @@
                                                     <color key="textColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsa-p5-cWH">
+                                                    <rect key="frame" x="0.0" y="335" width="320" height="270"/>
+                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="270" id="Abb-as-SgL"/>
+                                                        <constraint firstAttribute="width" constant="320" id="raH-PV-gDH"/>
+                                                    </constraints>
+                                                </webView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hoF-4g-6WW" firstAttribute="top" secondItem="m7t-dl-MXX" secondAttribute="topMargin" constant="-8" id="1br-c3-jxf"/>
@@ -223,12 +231,16 @@
                                                 <constraint firstItem="hgz-P6-mPU" firstAttribute="leading" secondItem="ZNY-gL-LPP" secondAttribute="trailing" constant="8" id="8eg-41-z91"/>
                                                 <constraint firstItem="VJ5-XE-mBY" firstAttribute="top" secondItem="kGo-LH-uVq" secondAttribute="bottom" constant="8" id="AyM-RC-EQT"/>
                                                 <constraint firstItem="reA-Qw-o2v" firstAttribute="top" secondItem="VJ5-XE-mBY" secondAttribute="bottom" constant="8" id="Bo2-oa-Ibh"/>
+                                                <constraint firstAttribute="trailing" secondItem="fsa-p5-cWH" secondAttribute="trailing" id="Bot-oO-j6P"/>
+                                                <constraint firstItem="fsa-p5-cWH" firstAttribute="top" secondItem="reA-Qw-o2v" secondAttribute="bottom" constant="8" id="I0V-gl-UbZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="reA-Qw-o2v" secondAttribute="trailing" id="JIH-Wn-6Ey"/>
+                                                <constraint firstAttribute="bottom" secondItem="fsa-p5-cWH" secondAttribute="bottom" constant="8" id="Mda-cd-i5B"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="VJ5-XE-mBY" secondAttribute="trailing" id="Xvd-Cf-cuu"/>
                                                 <constraint firstItem="hoF-4g-6WW" firstAttribute="leading" secondItem="m7t-dl-MXX" secondAttribute="leadingMargin" constant="-8" id="aIi-MT-lam"/>
                                                 <constraint firstItem="kGo-LH-uVq" firstAttribute="leading" secondItem="y2e-Dc-GWB" secondAttribute="trailing" constant="8" id="buZ-6m-Ab6"/>
                                                 <constraint firstItem="ZNY-gL-LPP" firstAttribute="top" secondItem="hoF-4g-6WW" secondAttribute="bottom" constant="8" id="dHU-Hf-52v"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="reA-Qw-o2v" secondAttribute="bottom" constant="-1" id="fVH-ey-hxo"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="reA-Qw-o2v" secondAttribute="bottom" constant="8" id="fVH-ey-hxo"/>
+                                                <constraint firstItem="fsa-p5-cWH" firstAttribute="leading" secondItem="m7t-dl-MXX" secondAttribute="leading" id="fza-os-mJD"/>
                                                 <constraint firstItem="y2e-Dc-GWB" firstAttribute="leading" secondItem="hgz-P6-mPU" secondAttribute="trailing" constant="8" id="gVR-vu-o5i"/>
                                                 <constraint firstItem="kGo-LH-uVq" firstAttribute="top" secondItem="hoF-4g-6WW" secondAttribute="bottom" constant="8" id="geP-37-q2X"/>
                                                 <constraint firstItem="hgz-P6-mPU" firstAttribute="top" secondItem="hoF-4g-6WW" secondAttribute="bottom" constant="8" id="gqh-6S-oEv"/>
@@ -248,6 +260,7 @@
                                             <outlet property="thumbDown" destination="kGo-LH-uVq" id="f3k-JF-Z5h"/>
                                             <outlet property="thumbUp" destination="y2e-Dc-GWB" id="sIa-Tr-rzX"/>
                                             <outlet property="views" destination="hgz-P6-mPU" id="Ey7-oQ-oqI"/>
+                                            <outlet property="webViewVideo" destination="fsa-p5-cWH" id="P9T-wq-a6f"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -257,7 +270,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8F9-OP-7vD">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <rect key="frame" x="150" y="390" width="20" height="20"/>
                                 <color key="color" red="0.95686274510000002" green="0.59607843140000005" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -274,6 +287,8 @@
                     <navigationItem key="navigationItem" id="T68-37-YWm">
                         <nil key="title"/>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="spinner" destination="8F9-OP-7vD" id="kuA-Vq-UWh"/>
                         <outlet property="tableView" destination="sXU-bV-4zY" id="5sX-FY-plC"/>

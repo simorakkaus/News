@@ -18,6 +18,7 @@ class SingleNewsItemCell: UITableViewCell {
     @IBOutlet weak var thumbDown: UILabel!
     @IBOutlet weak var currentNewsItemTitle: UILabel!
     @IBOutlet weak var currentNewsItemDescription: UILabel!
+    @IBOutlet weak var webViewVideo: UIWebView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
