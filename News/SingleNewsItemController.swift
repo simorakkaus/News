@@ -9,11 +9,57 @@
 import UIKit
 import HidingNavigationBar
 import SwiftSoup
-import Player
 
 class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(zoom))
+        newImageView.addGestureRecognizer(pinch)
+    }
+    
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+    
+    func zoom(_ sender:UIPinchGestureRecognizer) {
+        
+        let imageView = sender.view as! UIImageView
+        //        let scrollView = UIScrollView()
+        //        scrollView.delegate = self
+        //        scrollView.frame.size.height = self.view.frame.size.height * 2
+        //        scrollView.frame.size.width = self.view.frame.size.width * 2
+        
+        if sender.state == .ended || sender.state == .changed {
+            
+            let currentScale = imageView.frame.size.width / imageView.bounds.size.width
+            var newScale = currentScale*sender.scale
+            
+            if newScale < 1 {
+                newScale = 1
+            }
+            if newScale > 9 {
+                newScale = 9
+            }
+            
+            let transform = CGAffineTransform(scaleX: newScale, y: newScale)
+            
+            imageView.transform = transform
+            sender.scale = 1
+            //            scrollView.addSubview(imageView)
+        }
+    }
     
     var hidingNavBarManager: HidingNavigationBarManager?
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -123,6 +169,12 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         }).resume()
     }
     
+    func loadRequest(string: String) -> URLRequest{
+        let url = URL(string: string)
+        let urlRequest = URLRequest(url: url!)
+        return urlRequest
+    }
+    
     //// TableView datasoure and delegate
     
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
@@ -130,13 +182,13 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         
         return true
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
@@ -149,12 +201,12 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         parseHTML(link: linkToDownload)
         tableView.isHidden = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -162,6 +214,19 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
+    //    func showVideo(_ sender:UIButton!){
+    //        let str = singleItem.videoLink
+    //        let url = URL(string: str)
+    //        let request = URLRequest(url: url!)
+    //
+    //        let webView = UIWebView()
+    //        webView.frame.size.width = view.frame.size.width
+    //        webView.frame.size.height = view.frame.size.height / 2
+    //        webView.loadRequest(request)
+    //
+    //        self.view.addSubview(webView)
+    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleNewsItemCell", for: indexPath) as! SingleNewsItemCell
@@ -174,13 +239,17 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         cell.thumbUp.text = singleItem.thumbsUp
         cell.thumbDown.text = singleItem.thumbsDown
         
-        if let wv = cell.webViewVideo {
-            if isVideo == false {
+        
+        
+        if let wv = cell.webView {
+            if self.isVideo == false {
                 wv.removeFromSuperview()
-            } else if isVideo{
+            } else if self.isVideo{
                 
-                //cell.webViewVideo.loadRequest(URLRequest(url: URL(string: self.singleItem.videoLink)!))
-               
+                // very bad practic :(
+                if !singleItem.videoLink.isEmpty {
+                    cell.webView.loadRequest(URLRequest(url: URL(string: singleItem.videoLink)!))
+                }
             }
         }
         
@@ -188,50 +257,49 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
