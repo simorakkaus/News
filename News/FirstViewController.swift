@@ -81,8 +81,11 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.addSubview(self.refreshControl)
         
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: tableView)
+        if let tabBar = navigationController?.tabBarController?.tabBar {
+            hidingNavBarManager?.manageBottomBar(tabBar)
+        }
+        
         hidingNavBarManager?.refreshControl = refreshControl
-        hidingNavBarManager?.expansionResistance = 300
     }
     
     override func didReceiveMemoryWarning() {
