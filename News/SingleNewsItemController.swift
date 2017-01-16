@@ -21,6 +21,7 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         newImageView.backgroundColor = .black
         newImageView.contentMode = .scaleAspectFit
         newImageView.isUserInteractionEnabled = true
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
         newImageView.addGestureRecognizer(tap)
         self.view.addSubview(newImageView)
@@ -57,11 +58,11 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
             
             imageView.transform = transform
             sender.scale = 1
-            //            scrollView.addSubview(imageView)
         }
     }
     
     var hidingNavBarManager: HidingNavigationBarManager?
+    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var linkToDownload = ""
@@ -91,12 +92,10 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         
         if self.currentNewsItemTitle.range(of: charset) != nil {
             isVideo = true
-            print(self.isVideo.description)
             print("video")
             
         } else {
             print("no video")
-            print(self.isVideo.description)
         }
     }
     
@@ -193,10 +192,15 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: tableView)
-        hidingNavBarManager?.expansionResistance = 300
+        hidingNavBarManager?.expansionResistance = 100
+        
+//        if let tabBar = navigationController?.tabBarController?.tabBar {
+//            hidingNavBarManager?.manageBottomBar(tabBar)
+//        }
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 335
+        tableView.estimatedRowHeight = 516
+        tableView.separatorStyle = .none
         
         parseHTML(link: linkToDownload)
         tableView.isHidden = true

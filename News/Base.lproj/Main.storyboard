@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9BO-Lz-gOE" id="5hq-xl-SkS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PZX-9g-tpy">
@@ -141,14 +141,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="651" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sXU-bV-4zY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="751"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SingleNewsItemCell" rowHeight="516" id="X0c-Kg-oPy" customClass="SingleNewsItemCell" customModule="News" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="516"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X0c-Kg-oPy" id="m7t-dl-MXX">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="515"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hoF-4g-6WW">
@@ -158,9 +158,6 @@
                                                         <constraint firstAttribute="width" constant="320" id="0Lf-GP-OXG"/>
                                                         <constraint firstAttribute="height" constant="240" id="MQD-oB-Zb2"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="7gl-ge-tWP" appends="YES" id="nlb-Va-DDn"/>
-                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pubDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNY-gL-LPP">
                                                     <rect key="frame" x="8" y="248" width="154" height="16.5"/>
@@ -284,7 +281,7 @@
                             <constraint firstItem="8F9-OP-7vD" firstAttribute="centerX" secondItem="Qyd-d8-eOm" secondAttribute="centerX" id="Gag-tZ-WQA"/>
                             <constraint firstItem="8F9-OP-7vD" firstAttribute="centerY" secondItem="Qyd-d8-eOm" secondAttribute="centerY" id="ShP-X6-Quc"/>
                             <constraint firstItem="sXU-bV-4zY" firstAttribute="leading" secondItem="Qyd-d8-eOm" secondAttribute="leading" id="ZsS-R6-uqj"/>
-                            <constraint firstItem="Veu-1q-sjC" firstAttribute="top" secondItem="sXU-bV-4zY" secondAttribute="bottom" id="aZK-P6-dWJ"/>
+                            <constraint firstItem="Veu-1q-sjC" firstAttribute="top" secondItem="sXU-bV-4zY" secondAttribute="bottom" constant="-49" id="gfs-zh-fMw"/>
                             <constraint firstAttribute="trailing" secondItem="sXU-bV-4zY" secondAttribute="trailing" id="u8U-Cz-gqy"/>
                         </constraints>
                     </view>
@@ -307,11 +304,11 @@
             </objects>
             <point key="canvasLocation" x="2604.375" y="-161.61971830985917"/>
         </scene>
-        <!--Item-->
+        <!--Все новости-->
         <scene sceneID="iwZ-oN-rXo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xzf-Ce-naz" customClass="NavController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="TEU-So-AKQ"/>
+                    <tabBarItem key="tabBarItem" title="Все новости" id="TEU-So-AKQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hj0-RG-4fe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -342,6 +339,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Xzf-Ce-naz" kind="relationship" relationship="viewControllers" id="XHF-u7-AIt"/>
