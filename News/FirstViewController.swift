@@ -176,8 +176,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
                     
                     let xml = SWXMLHash.parse(data!)
                     
-                    //self.navigationItem.title = xml["rss"]["channel"]["pubDate"].element?.text
-                    
                     for element in xml["rss"]["channel"]["item"] {
                         let title = element["title"].element?.text
                         let description = element["description"].element?.text
@@ -221,17 +219,15 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func convertPubDate(pubDate: String) -> String {
         let formatter = DateFormatter()
-        let locale = Locale(identifier: "ru_RU")
-        let timezone = TimeZone(abbreviation: "MSK")
-        
+        let locale = Locale(identifier: "en_US")
+        formatter.locale = locale
         formatter.dateFormat = "ee, dd MMM yyyy HH:mm:ss zzzz"
         
         let date = formatter.date(from: pubDate)
         
         let formatter2 = DateFormatter()
-        formatter2.locale = locale
-        formatter2.timeZone = timezone
         formatter2.dateFormat = "dd.MM.yyyy HH:mm"
+        
         let pubDateString = formatter2.string(from: date!)
         
         return pubDateString

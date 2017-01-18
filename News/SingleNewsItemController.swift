@@ -86,7 +86,6 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hidingNavBarManager?.viewWillAppear(animated)
-        spinner.startAnimating()
         
         let charset = "Видео"
         
@@ -218,19 +217,6 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
-    //    func showVideo(_ sender:UIButton!){
-    //        let str = singleItem.videoLink
-    //        let url = URL(string: str)
-    //        let request = URLRequest(url: url!)
-    //
-    //        let webView = UIWebView()
-    //        webView.frame.size.width = view.frame.size.width
-    //        webView.frame.size.height = view.frame.size.height / 2
-    //        webView.loadRequest(request)
-    //
-    //        self.view.addSubview(webView)
-    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleNewsItemCell", for: indexPath) as! SingleNewsItemCell
