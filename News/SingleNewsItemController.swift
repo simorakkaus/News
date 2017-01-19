@@ -87,6 +87,7 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillAppear(animated)
         hidingNavBarManager?.viewWillAppear(animated)
         
+        
         let charset = "Видео"
         
         if self.currentNewsItemTitle.range(of: charset) != nil {
@@ -109,6 +110,8 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
         
         let request = URLRequest(url: URL(string: link)!)
         let session = URLSession.shared
+        
+        spinner.startAnimating()
         
         session.dataTask(with: request, completionHandler: {data, response, error in
             
