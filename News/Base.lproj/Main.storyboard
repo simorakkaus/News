@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Все новости-->
+        <!--Рязань-->
         <scene sceneID="zrf-DD-hIL">
             <objects>
                 <viewController id="0Hc-yN-WUw" customClass="FirstViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,7 +116,7 @@
                             <constraint firstItem="paJ-jO-toO" firstAttribute="top" secondItem="783-kr-h4I" secondAttribute="bottom" constant="-49" id="uiz-kM-ikM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Все новости" id="vcJ-LG-h2h">
+                    <navigationItem key="navigationItem" title="Рязань" id="vcJ-LG-h2h">
                         <barButtonItem key="backBarButtonItem" title=" " id="27D-gw-Q1s"/>
                     </navigationItem>
                     <connections>
@@ -308,7 +308,7 @@
         <scene sceneID="iwZ-oN-rXo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xzf-Ce-naz" customClass="NavController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Рязань" id="TEU-So-AKQ"/>
+                    <tabBarItem key="tabBarItem" title="Рязань" image="Russian VDV" selectedImage="Russian VDV Filled" id="TEU-So-AKQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hj0-RG-4fe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -362,7 +362,7 @@
         <scene sceneID="82j-Es-Drq">
             <objects>
                 <navigationController id="IEr-Nx-cLR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Спорт" id="sxC-NQ-P94"/>
+                    <tabBarItem key="tabBarItem" title="Спорт" image="Football" selectedImage="Football Filled" id="sxC-NQ-P94"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Bq-Qx-W7o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -408,7 +408,7 @@
         <scene sceneID="bhL-sZ-gZF">
             <objects>
                 <navigationController id="QAa-zG-byq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Мир" id="GTg-x1-wez"/>
+                    <tabBarItem key="tabBarItem" title="Мир" image="Geography" selectedImage="Geography Filled" id="GTg-x1-wez"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bEQ-Zh-dCj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -454,7 +454,7 @@
         <scene sceneID="w58-0N-Ph7">
             <objects>
                 <navigationController id="xTC-wf-m7h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Бизнес" id="bSF-zM-Ems"/>
+                    <tabBarItem key="tabBarItem" title="Бизнес" image="Business" selectedImage="Business Filled" id="bSF-zM-Ems"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rcl-MI-XUv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -500,7 +500,7 @@
         <scene sceneID="5Sr-9E-mYy">
             <objects>
                 <navigationController id="hMh-ae-jJQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Публикации" id="0Wx-oB-vuR"/>
+                    <tabBarItem key="tabBarItem" title="Публикации" image="News" selectedImage="News Filled" id="0Wx-oB-vuR"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JCp-HQ-53b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -538,4 +538,16 @@
             <point key="canvasLocation" x="-219.375" y="-160.56338028169014"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Business" width="25" height="25"/>
+        <image name="Business Filled" width="25" height="25"/>
+        <image name="Football" width="25" height="25"/>
+        <image name="Football Filled" width="25" height="25"/>
+        <image name="Geography" width="25" height="25"/>
+        <image name="Geography Filled" width="25" height="25"/>
+        <image name="News" width="25" height="25"/>
+        <image name="News Filled" width="25" height="25"/>
+        <image name="Russian VDV" width="25" height="25"/>
+        <image name="Russian VDV Filled" width="25" height="25"/>
+    </resources>
 </document>
