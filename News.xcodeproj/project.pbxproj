@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243AF6061E30FD5C0057DAC9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243AF6051E30FD5C0057DAC9 /* TabBarController.swift */; };
 		24C0CA2B1DBACE790031987C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C0CA2A1DBACE790031987C /* AppDelegate.swift */; };
 		24C0CA301DBACE790031987C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C0CA2E1DBACE790031987C /* Main.storyboard */; };
 		24C0CA321DBACE790031987C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C0CA311DBACE790031987C /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0F169D14006572F5011E5C28 /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		243AF6051E30FD5C0057DAC9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		24C0CA271DBACE790031987C /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C0CA2A1DBACE790031987C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24C0CA2F1DBACE790031987C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				24C0CA2A1DBACE790031987C /* AppDelegate.swift */,
+				243AF6051E30FD5C0057DAC9 /* TabBarController.swift */,
 				24F327911DFACD7E00CA3C28 /* NavController.swift */,
 				24DA04761DECC8F1000E48C9 /* FirstViewController.swift */,
 				24DA04781DECC92E000E48C9 /* NewsItemCell.swift */,
@@ -351,6 +354,7 @@
 				24F3279A1E018C9B00CA3C28 /* SingleNewsItemController.swift in Sources */,
 				24C0CA2B1DBACE790031987C /* AppDelegate.swift in Sources */,
 				24DA04791DECC92E000E48C9 /* NewsItemCell.swift in Sources */,
+				243AF6061E30FD5C0057DAC9 /* TabBarController.swift in Sources */,
 				24DA04771DECC8F1000E48C9 /* FirstViewController.swift in Sources */,
 				24F327921DFACD7E00CA3C28 /* NavController.swift in Sources */,
 			);

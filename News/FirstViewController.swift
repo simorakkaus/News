@@ -18,7 +18,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainSpinner: UIActivityIndicatorView!
     
-    let allNewsURL = "http://www.rzn.info/rss/news/all.xml"
+    let feedURL = "https://www.rzn.info/rss/news/ryazan.xml"
     var linkToDownload = String()
     
     var hidingNavBarManager: HidingNavigationBarManager?
@@ -157,7 +157,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     func loadData() {
         //newsItems.removeAll()
         
-        let request = URLRequest(url: URL(string: allNewsURL)!)
+        let request = URLRequest(url: URL(string: feedURL)!)
         let session = URLSession.shared
         
         session.dataTask(with: request, completionHandler: {data, response, error in
