@@ -329,7 +329,7 @@
             </objects>
             <point key="canvasLocation" x="-219" y="596"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Бизнес-->
         <scene sceneID="kPy-ho-gC0">
             <objects>
                 <tableViewController id="atm-EP-wnT" sceneMemberID="viewController">
@@ -352,7 +352,7 @@
                             <outlet property="delegate" destination="atm-EP-wnT" id="aS8-3b-dp4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="rBc-Th-PRb"/>
+                    <navigationItem key="navigationItem" title="Бизнес" id="rBc-Th-PRb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPR-W4-apP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -375,7 +375,7 @@
             </objects>
             <point key="canvasLocation" x="1129" y="596"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Мир-->
         <scene sceneID="b8Q-RI-Lvc">
             <objects>
                 <tableViewController id="RV7-46-cX6" sceneMemberID="viewController">
@@ -398,7 +398,7 @@
                             <outlet property="delegate" destination="RV7-46-cX6" id="Wye-Q9-Mhh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7Gr-0X-aqH"/>
+                    <navigationItem key="navigationItem" title="Мир" id="7Gr-0X-aqH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7e-SQ-WhD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -421,7 +421,7 @@
             </objects>
             <point key="canvasLocation" x="-879" y="596"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Спорт-->
         <scene sceneID="E4A-zo-ZSY">
             <objects>
                 <tableViewController id="1T7-fc-DnM" sceneMemberID="viewController">
@@ -444,7 +444,7 @@
                             <outlet property="delegate" destination="1T7-fc-DnM" id="nMt-aT-ABP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Puu-oe-gix"/>
+                    <navigationItem key="navigationItem" title="Спорт" id="Puu-oe-gix"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oUB-cH-flR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -467,7 +467,7 @@
             </objects>
             <point key="canvasLocation" x="458" y="596"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Публикации-->
         <scene sceneID="L0r-DF-mZz">
             <objects>
                 <tableViewController id="3uh-wn-6lh" sceneMemberID="viewController">
@@ -490,7 +490,7 @@
                             <outlet property="delegate" destination="3uh-wn-6lh" id="ZBP-nW-ufd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="sgf-5J-Z0m"/>
+                    <navigationItem key="navigationItem" title="Публикации" id="sgf-5J-Z0m"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9CB-hy-nMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
