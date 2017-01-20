@@ -144,10 +144,13 @@ class SingleNewsItemController: UIViewController, UITableViewDelegate, UITableVi
                         
                         if self.isVideo {
                             videoLink = try doc.select("div#item-news-canvas").select("div.text").select("iframe").attr("src")
+                            
+                            // fix vk bug with video link
                             let charset = "//vk"
                             if videoLink.range(of: charset) != nil {
                                 videoLink = "https:\(videoLink)"
                             }
+                            
                         } else {
                             videoLink = ""
                         }
